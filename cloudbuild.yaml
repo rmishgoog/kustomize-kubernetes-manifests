@@ -17,8 +17,8 @@ steps:
   - |
      cd kustomize-kubernetes-manifests && \
      export _CURR_TAG=`cut -d : -f 2 <<< "${_IMAGE_TAG}"` && \
-     sed -i "s/PROJECT_ID/${PROJECT_ID}/g" overlays/development/product-listing-api/product-listing-api-dev-patch.yaml && \
-     sed -i "s/SHORT_SHA/$$_CURR_TAG/g"  overlays/development/product-listing-api/product-listing-api-dev-patch.yaml
+     sed "s/PROJECT_ID/${PROJECT_ID}/g" overlays/development/product-listing-api/product-listing-api-dev-patch.tpl.yaml | \
+     sed "s/SHORT_SHA/$$_CURR_TAG/g" > overlays/development/product-listing-api/product-listing-api-dev-patch.yaml
 
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Push manifest
