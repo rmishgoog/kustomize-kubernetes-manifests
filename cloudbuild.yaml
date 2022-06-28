@@ -26,9 +26,10 @@ steps:
   args:
   - '-c'
   - |
+    cd kustomize-kubernetes-manifests && \
     set -x && \
     git config --global init.defaultBranch main && \
     git config --global user.email "rohitmishra@google.com" && \
     git add overlays/development/product-listing-api/product-listing-api-dev-patch.yaml && \
-    git commit -m "Deploying gcr.io/${PROJECT_ID}/product-listing-api:${_CURR_TAG}" && \
+    git commit -m "Deploying the tag ${_IMAGE_TAG}" && \
     git push origin main
