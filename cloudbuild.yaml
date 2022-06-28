@@ -9,10 +9,6 @@ steps:
     git config --global user.email "rohitmishra@google.com" && \
     git clone https://${GITHUB_TOKEN}@github.com/rmishgoog/kustomize-kubernetes-manifests
   secretEnv: ['GITHUB_TOKEN']
-  availableSecrets:
-    secretManager:
-       - versionName: projects/$PROJECT_ID/secrets/github-commits-cloud-build/versions/latest
-         env: 'GITHUB_TOKEN'
 
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Update manifest
@@ -38,3 +34,7 @@ steps:
     git add overlays/development/product-listing-api/product-listing-api-dev-patch.yaml && \
     git commit -m "Deploying the tag ${_IMAGE_TAG}" && \
     git push origin main
+availableSecrets:
+  secretManager:
+    - versionName: projects/$PROJECT_ID/secrets/github-commits-cloud-build/versions/latest
+      env: 'GITHUB_TOKEN'
