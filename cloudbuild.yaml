@@ -7,7 +7,12 @@ steps:
   - |
     git config --global init.defaultBranch main && \
     git config --global user.email "rohitmishra@google.com" && \
-    git clone https://github.com/rmishgoog/kustomize-kubernetes-manifests
+    git clone https://${GITHUB_TOKEN}@github.com/rmishgoog/kustomize-kubernetes-manifests
+  secretEnv: ['GITHUB_TOKEN']
+  availableSecrets:
+    secretManager:
+       - versionName: projects/$PROJECT_ID/secrets/github-commits-cloud-build/versions/latest
+         env: 'GITHUB_TOKEN'
 
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Update manifest
