@@ -5,8 +5,9 @@ steps:
   args:
   - '-c'
   - |
+     export CURR_TAG=`cut -d : -f 2 <<< "${_IMAGE_TAG}"` && \
      sed i "s/PROJECT_ID/${PROJECT_ID}/g" overlays/development/product-listing-api/product-listing-api-dev-patch.yaml && \
-     sed i "s/SHORT_SHA/${_IMAGE_SHA}/g"  overlays/development/product-listing-api/product-listing-api-dev-patch.yaml
+     sed i "s/SHORT_SHA/${CURR_TAG}/g"  overlays/development/product-listing-api/product-listing-api-dev-patch.yaml
 
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Push manifest
