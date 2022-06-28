@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: product-listing-api
-          image: gcr.io/$PROJECT_ID/product-listing-api:$COMMIT_SHA
+          image: gcr.io/PROJECT_ID/product-listing-api:SHORT_SHA
           resources:
             requests:
               cpu: "500m"
@@ -34,9 +34,9 @@ metadata:
   name: product-listing-api-hpa
 spec:
   scaleTargetRef:
-  apiVersion: apps/v1
-  kind: Deployment
-  name: product-listing-api
+    apiVersion: apps/v1
+    kind: Deployment
+    name: product-listing-api
   minReplicas: 5
   maxReplicas: 10
   metrics:
