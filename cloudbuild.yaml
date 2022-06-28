@@ -5,8 +5,8 @@ steps:
   args:
   - '-c'
   - |
-     sed "s/PROJECT_ID/${PROJECT_ID}/g" overlays/development/product-listing-api/product-listing-api-dev-patch.yaml | \
-     sed "s/SHORT_SHA/${_IMAGE_TAG}/g" > overlays/development/product-listing-api/product-listing-api-dev-patch.yaml
+     sed "s/PROJECT_ID/${PROJECT_ID}/g" overlays/development/product-listing-api/product-listing-api-dev-patch.yaml && \
+     sed "s/SHORT_SHA/${_IMAGE_TAG}/g"  overlays/development/product-listing-api/product-listing-api-dev-patch.yaml
 
 - name: 'gcr.io/cloud-builders/gcloud'
   id: Push manifest
