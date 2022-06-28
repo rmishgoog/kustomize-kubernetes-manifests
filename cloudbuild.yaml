@@ -16,6 +16,7 @@ steps:
   - '-c'
   - |
     set -x && \
+    git config --global init.defaultBranch main && \
     git config --global user.email "rohitmishra@google.com" && \
     git add overlays/development/product-listing-api/product-listing-api-dev-patch.yaml && \
     git commit -m "Deploying gcr.io/${PROJECT_ID}/product-listing-api:${_IMAGE_TAG}" && \
