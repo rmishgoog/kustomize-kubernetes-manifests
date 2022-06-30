@@ -37,11 +37,11 @@ spec:
   maxReplicas: 2
   metrics:
   - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 90
+  resource:
+    name: cpu
+    target:
+      type: Utilization
+      averageUtilization: 90
 
 ---
 apiVersion: v1
