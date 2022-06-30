@@ -21,10 +21,10 @@ spec:
           image: gcr.io/PROJECT_ID/product-listing-api:SHORT_SHA
           resources:
             requests:
-              cpu: "500m"
+              cpu: "250m"
               memory: "256Mi"
             limits:
-              cpu: "1000m"
+              cpu: "300m"
               memory: "512Mi"
 
 ---
