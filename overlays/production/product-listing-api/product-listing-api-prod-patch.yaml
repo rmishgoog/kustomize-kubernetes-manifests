@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: product-listing-api
 spec:
-  stategy:
+  strategy:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 20%    
