@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: product-listing-api
-          image: gcr.io/PROJECT_ID/product-listing-api:SHORT_SHA
+          image: gcr.io/PROJECT_ID/product-listing-api@IMAGE_SHA_REPL
           resources:
             requests:
               cpu: "100m"
