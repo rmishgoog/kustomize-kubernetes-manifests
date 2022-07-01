@@ -16,7 +16,7 @@ steps:
   - '-c'
   - |
      cd kustomize-kubernetes-manifests && \
-     export _CURR_SHA=`cut -d @ -f 2 <<< "${_IMAGE_SHA}" && \
+     export _CURR_SHA=`cut -d @ -f 2 <<< "${_IMAGE_SHA}"` && \
      sed "s/PROJECT_ID/${PROJECT_ID}/g" overlays/development/template/product-listing-api-dev-patch.tpl.yaml | \
      sed "s/IMAGE_SHA_REPL/$$_CURR_SHA/g" > overlays/development/product-listing-api/product-listing-api-dev-patch.yaml
 
