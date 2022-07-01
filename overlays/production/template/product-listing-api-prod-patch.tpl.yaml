@@ -6,7 +6,7 @@ spec:
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxUnavailable: 20%    
+      maxUnavailable: 50%    
   replicas: 2
   selector:
     matchLabels:
