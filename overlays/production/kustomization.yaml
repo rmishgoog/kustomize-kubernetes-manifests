@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 bases:
-- ../../../base/product-listing-api
+- ../../base/product-listing-api
 patchesStrategicMerge:
 - product-listing-api-prod-patch.yaml
