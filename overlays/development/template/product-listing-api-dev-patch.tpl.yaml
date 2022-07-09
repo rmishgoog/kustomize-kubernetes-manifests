@@ -24,6 +24,13 @@ spec:
               memory: "256Mi"
 
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-listing-api-service
+  annotations:
+    cloud.google.com/neg: '{"exposed_ports": {"80":{"name": "product-listing-api-service-dev"}}}'
+---
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
