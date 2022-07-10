@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: product-listing-api
-          image: gcr.io/rmishra-gke-cicd-demo-build/product-listing-api:e8c7a98
+          image: gcr.io/rmishra-gke-cicd-demo-build/product-listing-api:298147b
           resources:
             requests:
               cpu: "100m"
